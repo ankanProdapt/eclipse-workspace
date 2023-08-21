@@ -1,0 +1,30 @@
+package practice;
+import java.util.*;
+
+public class Day2_b {
+	public static void main(String[] args) {
+		System.out.println(abundancyCategory(6));
+	}
+	
+	public static boolean isDivisible(Integer N, Integer d) {
+		return (N % d == 0);
+	}
+	
+	public static Integer calculateAbundancy(Integer N) {
+		int sumOfFactors = 0;
+		for(int i = 1; i < N; i++) {
+			if(isDivisible(N,i))
+				sumOfFactors += i;
+		}
+		
+		return sumOfFactors - N;
+	}
+	
+	public static Integer abundancyCategory(Integer N) {
+		int abundancy = calculateAbundancy(N);
+		
+		if(abundancy > 0) return 1;
+		if(abundancy < 0) return -1;
+		return 0;
+	}
+}

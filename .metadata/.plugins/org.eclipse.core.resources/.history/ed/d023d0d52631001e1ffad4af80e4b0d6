@@ -1,0 +1,24 @@
+package odometer;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
+class OdometerTest {
+	private Odometer o;
+	
+	@BeforeEach
+	void setUp() {
+		o = new Odometer(5);
+		assertEquals(12345, o.getReading());
+	}
+	
+	
+	@Test
+	void testGetSize() {
+		assertEquals(5, o.getSize());
+	}
+
+}

@@ -1,0 +1,7 @@
+package tuples;
+
+import java.util.Collections;
+
+public class Tuple extends Collections {
+
+}

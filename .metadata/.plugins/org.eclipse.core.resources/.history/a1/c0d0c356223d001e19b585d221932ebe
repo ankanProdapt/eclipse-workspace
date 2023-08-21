@@ -1,0 +1,25 @@
+package tuples;
+
+public class Pair<T> extends Tuple<T> {
+	
+	public Pair(T[] objArr) {
+		super(objArr);
+		if(objArr.length != 2) {
+			tuple = null;
+			throw new UnsupportedOperationException("Size of Pair must be 2!");
+		}
+	}
+	
+	public T first() {
+		return tuple.get(0);
+	}
+	
+	public T second() {
+		return tuple.get(1);
+	}
+	
+	@Override
+	public String toString() {
+		return "tuple: " + tuple.toString();
+	}
+}

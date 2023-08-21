@@ -1,0 +1,15 @@
+package tennis;
+
+public class Player {
+	public String name;
+	public int score;
+	public int gamesWon;
+	public int setsWon;
+	
+	public Player(String name) {
+		this.name = name;
+		score = 0;
+		gamesWon = 0;
+		setsWon = 0;
+	}
+}

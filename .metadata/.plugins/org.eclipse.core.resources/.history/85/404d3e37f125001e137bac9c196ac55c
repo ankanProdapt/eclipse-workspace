@@ -1,0 +1,58 @@
+package practice;
+import java.util.*;
+
+public class Day3_a {
+	public static void main(String[] args) {
+		String date = "15/08/2023";
+		
+		String julianDate = julianFormat(date);
+	}
+	
+	
+	public static int getYear(String date) {
+		String[] arr = date.split("/", 3);
+		return Integer.valueOf(arr[2]);
+	}
+	public static int getMonth(String date) {
+		String[] arr = date.split("/", 3);
+		return Integer.valueOf(arr[1]);
+	}
+	public static int getDay(String date) {
+		String[] arr = date.split("/", 3);
+		return Integer.valueOf(arr[0]);
+	}
+	
+	public static boolean isLeap(int year) {
+		if(year % 100 == 0) {
+			return (year % 400 == 0);
+		}
+		return (year % 4 == 0);
+	}
+	
+	public static int countOfDays(int year, int month, int day) {
+		int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30,
+				             31, 31, 30, 31, 30, 31};
+		int count = 0;
+		
+		for(int i = 1; i < month; i++) {
+			count += daysInMonth[i];
+		}
+		
+		if(isLeap(year) && (month > 2)) {
+			count++;
+		}
+		
+		return count;
+	}
+	
+	public static String julianFormat(String date) {
+		int year = getYear(date);
+		int month = getMonth(date);
+		int day = getDay(date);
+		
+		int count = countOfDays(year, month, day);
+		
+		return String.valueOf(year)+String.valueOf(count);
+	}
+
+}

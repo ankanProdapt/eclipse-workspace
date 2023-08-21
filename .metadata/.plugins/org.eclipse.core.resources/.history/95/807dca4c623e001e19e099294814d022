@@ -1,0 +1,29 @@
+package textFileProcessor;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Stack;
+
+public class TextFileProcessor {
+	Stack<String> textStack;
+	List<String> commandText;
+
+	public TextFileProcessor(String textFile, String commandFile) {
+		textStack.addAll(getFileContent(textFile));
+		commandText = getFileContent(commandFile);
+	}
+	
+	public List<String> getFileContent(String fileName) {
+		Path p = Paths.get(fileName);
+		
+		try {
+			return Files.readAllLines(p);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

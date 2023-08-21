@@ -1,0 +1,12 @@
+package yahtzee;
+
+import java.util.List;
+
+public class YahtzeeDice {
+	
+	List<Die> dice = ArrayList<Die>();
+	
+	public YahtZeeDice() {
+		
+	}
+}

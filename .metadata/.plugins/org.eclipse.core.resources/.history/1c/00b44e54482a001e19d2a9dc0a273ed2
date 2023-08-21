@@ -1,0 +1,17 @@
+package TwoDimension;
+
+import java.util.*;
+
+public class Testing {
+	
+	public static void main(String[] args) {
+		Point a = new Point(1, 2);
+		Point b = new Point(2, 2);
+		
+		Line line1 = new Line(1, 5);
+		Line line2 = new Line(2, 10);
+		System.out.println(a.distanceFrom(b));
+		
+		System.out.println(line1.intersection(line2));
+	}
+}

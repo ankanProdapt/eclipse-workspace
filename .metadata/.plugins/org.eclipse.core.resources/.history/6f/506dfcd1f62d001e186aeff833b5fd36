@@ -1,0 +1,48 @@
+package trump;
+import java.util.*;
+
+public class Tester {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Category matches = new Matches();
+		Category highscore = new Highscore();
+		Category runs = new Runs();
+		Category hundreds = new Hundreds();
+		Category rank = new Rank();
+		
+		
+		List<Card> deck = new ArrayList<Card>();
+		
+		System.out.print("Enter number of cards: ");
+		int numberOfCards = sc.nextInt();
+		
+		for(int i = 0; i < numberOfCards; i++) {
+			
+			System.out.print("Enter Player " + (i + 1) + " name: ");
+			Card card = new Card(sc.next());
+			
+			System.out.println("Matches: ");
+			card.addCategory(matches, sc.nextInt());
+			
+			System.out.println("Highscore: ");
+			card.addCategory(highscore, sc.nextInt());
+			
+			System.out.println("runs: ");
+			card.addCategory(runs, sc.nextInt());
+			
+			System.out.println("Hundreds: ");
+			card.addCategory(hundreds, sc.nextInt());
+			
+			System.out.println("Rank: ");
+			card.addCategory(rank, sc.nextInt());
+			
+			deck.add(card);
+		}
+		
+		System.out.println(deck);
+		
+		sc.close();
+	}
+}

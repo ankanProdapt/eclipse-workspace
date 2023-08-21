@@ -1,0 +1,18 @@
+package tuples;
+
+public class Main {
+	public static void main(String[] args) {
+		Integer[] a = {1, 2, 3};
+		Tuple<Integer> t = new Tuple<Integer>(a);
+		System.out.println(t);
+		
+		Pair<Integer> p = new Pair<Integer>(new Integer[]{1, 2});
+		System.out.println(p);
+		
+		p.flip();
+		System.out.println(p);
+		
+		System.out.println(p.first());
+		System.out.println(p.second());
+	}
+}

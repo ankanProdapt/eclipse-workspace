@@ -1,0 +1,81 @@
+package practice;
+import java.util.*;
+
+//233667862
+
+public class Day3_a {
+	public static void main(String[] args) {
+		System.out.println(julianFormat("01/ feb, 2023"));
+		System.out.println(julianFormat("8 , Mar, 2023"));
+		System.out.println(julianFormat("17 / 12 / 2023"));
+	}
+	
+	
+	
+	
+	//private static final String SEPARATORS = "/,";
+	public static final int[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	public static final String[] MONTH = {"jan", "feb", "mar", "apr", "may", "jun", "jul",
+										   "aug", "sep", "oct", "nov", "dec"};
+	
+	
+	public static boolean isLeap(int year) {
+		if(year % 100 == 0) {
+			return (year % 400 == 0);
+		}
+		return (year % 4 == 0);
+	}
+	
+	public static int getMonth(String mmm) {
+		return Arrays.asList(MONTH).indexOf(mmm)+1;
+	}
+	
+	
+	public static int countOfDays(int year, int month, int day) {
+		int count = day;
+		
+		for(int i = 1; i < month; i++) {
+			count += DAYS_IN_MONTH[i];
+		}
+		
+		if(isLeap(year) && (month > 2)) {
+			count++;
+		}
+		
+		return count;
+	}
+	
+	public static String addDigits(int N, int digitCount) {
+		String result = String.valueOf(N);
+		
+		while(result.length() < digitCount) {
+			result = "0" + result;
+		}
+		
+		return result;
+	}
+	
+	public static String julianFormat(String date) {
+		
+		
+		
+		String[] arr = date.replace(","," ").replace("/"," ").split(" +");
+		
+		int year = Integer.valueOf(arr[2].strip());
+		int month;
+		try {
+			month = Integer.valueOf(arr[1]);
+		} catch(Exception e) {
+			month = getMonth(arr[1].toLowerCase());
+		}
+		int day = Integer.valueOf(arr[0]);
+		
+		int count = countOfDays(year, month, day);
+		
+		String strYear = addDigits(year, 4);
+		String strCount = addDigits(count, 3);
+		
+		return strYear + strCount;
+	}
+
+}

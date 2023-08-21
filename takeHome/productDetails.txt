@@ -1,0 +1,7 @@
+product1, 85
+product2, 89
+product3, 85
+product4, 87
+product5, 86
+product6, 84
+product7, 87

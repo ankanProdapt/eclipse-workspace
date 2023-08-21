@@ -1,0 +1,32 @@
+package practice;
+import java.util.*;
+
+public class Day5_a {
+	
+	public static int DIGITS = 0;
+	
+	
+	public static boolean isAscending(int reading) {
+		int prev = 10;
+		while(reading > 0) {
+			int lastDigit = reading % 10;
+			if(lastDigit < prev) {
+				prev = lastDigit;
+			}
+			else {
+				return false;
+			}
+			reading /= 10;
+		}
+		
+		return true;
+	}
+	
+	public static int nextReading(int reading) {
+		return reading;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(isAscending(122));
+	}
+}

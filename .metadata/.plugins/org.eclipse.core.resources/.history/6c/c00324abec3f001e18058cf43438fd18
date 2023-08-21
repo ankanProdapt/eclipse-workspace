@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "prevNo">1</div>
+	<form method="post">
+		<button onclick="changeAction(this.id)">High</button>
+		<button onclick="changeAction(this.id)">Low</button>
+	</form>
+	
+	<script>
+		function changeAction(buttonId){
+			console.log(buttonId);
+		}
+	</script>
+</body>
+</html>

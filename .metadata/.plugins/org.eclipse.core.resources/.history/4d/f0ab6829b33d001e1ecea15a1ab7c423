@@ -1,0 +1,12 @@
+package tennis;
+
+public class Match {
+	
+	public static void updateMatch(Player winner, Player loser) {
+		winner.setsWon++;
+	}
+	
+	public static boolean isMatchOver(Player player1, Player player2) {
+		return player1.setsWon >= 3 || player2.setsWon >= 3;
+	}
+}

@@ -1,0 +1,20 @@
+package TwoDimension;
+
+public class Line {
+	private double m, c;
+	
+	Line(double newM, double newC){
+		m = newM;
+		c = newC;
+	}
+	
+	
+	
+	
+	
+	@Override
+	public String toString() {
+		return String.format("y = %fx + %f", m, c);
+	}
+	
+}

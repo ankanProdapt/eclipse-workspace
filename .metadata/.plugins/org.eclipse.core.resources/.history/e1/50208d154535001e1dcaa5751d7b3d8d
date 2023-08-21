@@ -1,0 +1,48 @@
+package posts;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class PostHandler {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		PreparedStatement command = null;
+	    PreparedStatement update = null;
+	    Statement stmt = null;
+	    Connection cnx = null;
+	    ResultSet rs = null;
+	    
+	    
+	    String likePost = "INSERT INTO likes (userId, postId) VALUES(?, ?)";
+	    String addComment = "INSERT INTO comments VALUES (id, content, userId, postId) (?, ?, ?, ?)";
+	    String retrieveLikes = "SELECT posts.title , COUNT(*) AS Likes "
+					    		+ "FROM posts, likes "
+					    		+ "WHERE likes.postId = posts.id "
+					    		+ "GROUP BY posts.id";
+	    String retrieveComments = "SELECT posts.id, posts.title , comments.content "
+						    	   + "FROM posts, comments "
+						    	   + "WHERE posts.id = comments.postId "
+						    	   + "ORDER BY posts.id";
+	    
+	    try {
+			cnx = DriverManager.getConnection("jdbc:mysql://localhost: 3306/postsDB", 
+											"ankan2001prodapt", 
+											"we1c@me1");
+			stmt = cnx.createStatement();
+			rs = stmt.executeQuery(retrieveLikes);
+			
+			while(rs.next()) {
+				System.out.println(rs.getString("title") + "  " + rs.getInt("Likes"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

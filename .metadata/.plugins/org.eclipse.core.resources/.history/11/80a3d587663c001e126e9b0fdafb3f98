@@ -1,0 +1,32 @@
+package chess;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+
+public class ChessTester {
+	
+	public ChessBoard c = new ChessBoard();
+	
+	@BeforeEach
+	public void setUp() throws Exception{
+		Path p = Paths.get("pgn1.txt");
+		List<String> lines = Files.readAllLines(p);
+		int moveNumber = 1;
+		
+		for(String line: lines) {
+			System.out.println("Move Number: " + moveNumber);
+			moveNumber++;
+			String[] moves = line.split(" ");
+			c.executeMove("white", moves[0]);
+			c.executeMove("black", moves[1]);
+			System.out.println(c);
+		}
+	}
+
+}

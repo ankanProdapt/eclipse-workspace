@@ -1,0 +1,5 @@
+package tennis;
+
+public class Serve {
+	public Serve()
+}

@@ -1,0 +1,10 @@
+package TwoDimension;
+
+import java.util.*;
+
+public class Testing {
+	Point a = new Point(1, 2);
+	Point b = new Point(2, 3);
+	
+	System.out.println(a);
+}

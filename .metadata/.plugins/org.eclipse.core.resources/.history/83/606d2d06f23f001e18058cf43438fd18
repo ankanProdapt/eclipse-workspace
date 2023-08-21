@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "prevNo">1</div>
+	<form method="post" action="highLow">
+		<button id="high" onclick="changeAction(this.id)" data-isClicked="false">High</button>
+		<button id="low" onclick="changeAction(this.id)" data-isClicked="false">Low</button>
+	</form>
+	
+	<script>
+		function changeAction(buttonId){
+			let b = document.getElementById(buttonId);
+			b.setAttribute("data-isClicked", "true");
+			console.log(b);
+		}
+	</script>
+</body>
+</html>

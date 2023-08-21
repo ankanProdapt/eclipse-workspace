@@ -1,0 +1,9 @@
+package trump;
+
+public class Card {
+	
+	public Card(int matches, int notOuts, int runs, int highScore, int average,
+			int hundereds, int fifties, int rank) {
+		
+	}
+}

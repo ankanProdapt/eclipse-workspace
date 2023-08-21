@@ -1,0 +1,17 @@
+package trump;
+
+public class Matches implements Category{
+	
+	String category = "Matches";
+	
+	@Override
+	public int compare(Integer score1, Integer score2) {
+		return Integer.compare(score1, score2);
+	}
+	
+	@Override
+	public String toString() {
+		return category;
+	}
+	
+}

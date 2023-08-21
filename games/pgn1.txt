@@ -1,0 +1,6 @@
+e2-e4 e7-e5
+d2-d4 e5xd4
+Qd1xd4 Qd8-f6
+Qd4xf6 Ng8xf6
+Bf1-c4 Nf6xe4
+Ng1-f3 Bf8-c5

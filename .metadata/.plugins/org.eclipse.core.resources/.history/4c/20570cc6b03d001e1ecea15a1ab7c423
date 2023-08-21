@@ -1,0 +1,8 @@
+package tennis;
+
+public class Game {
+	
+	public static void updateScore(Player winner, Player loser) {
+		
+	}
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "prevNo">1</div>
+	<form method="post" action="highLow">
+		<input type="text" hidden="true" name="buttonPressed">
+		<button id="high" onclick="changeAction(this.id)" data-isClicked="false">High</button>
+		<button id="low" onclick="changeAction(this.id)" data-isClicked="false">Low</button>
+	</form>
+	
+	<script>
+		function changeAction(buttonId){
+			console.log(txt.value);
+			let b = document.getElementById(buttonId);
+			let txt = document.getElementsByName("buttonPressed")[0];
+			txt.value = buttonId;
+			console.log(txt.value);
+		}
+	</script>
+</body>
+</html>

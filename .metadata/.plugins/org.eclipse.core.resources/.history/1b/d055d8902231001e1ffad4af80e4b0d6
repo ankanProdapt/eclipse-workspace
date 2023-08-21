@@ -1,0 +1,14 @@
+package odometer;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class OdometerTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,28 @@
+package chess;
+
+import java.util.List;
+
+public class Pawn extends Piece{
+
+	public Pawn(String colour, int row, String column) {
+		super("Pawn", colour, row, column);
+	}
+	
+	@Override
+	public boolean canMoveTo(int destinationRow, String destinationCol, Piece[][] chessBoard) {
+        int dx = Math.abs(destinationRow - row);
+        int dy = Math.abs(ChessBoard.columns.indexOf(column) - ChessBoard.columns.indexOf(destinationCol));
+        
+        System.out.println(dx);
+        if (dy == 1 && dx == 0) {
+        	return chessBoard[destinationRow - 1][ChessBoard.columns.indexOf(destinationCol)] == null;
+        }
+        
+        if (dy == 2 && dx == 0) {
+        	int midRow = (destinationRow + row) / 2;
+        	return (chessBoard[destinationRow - 1][ChessBoard.columns.indexOf(destinationCol)] == null &&
+        			chessBoard[midRow - 1][ChessBoard.columns.indexOf(destinationCol)] == null);
+        }
+        return false;
+    }
+}

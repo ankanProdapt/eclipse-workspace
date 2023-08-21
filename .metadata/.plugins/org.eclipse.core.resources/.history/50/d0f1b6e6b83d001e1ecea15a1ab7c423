@@ -1,0 +1,16 @@
+package tennis;
+
+public class Game {
+	
+	public static int MIN_SERVES_TO_WIN = 4;
+	public static int MIN_MARGIN = 2;
+	
+	public static void updateGame(Player winner, Player loser) {
+		winner.servesWon++;
+		if((winner.servesWon >= MIN_SERVES_TO_WIN) && 
+			(winner.servesWon - loser.servesWon >= MIN_MARGIN)) {
+			Set.updateSet(winner, loser);
+			
+		}
+	}
+}

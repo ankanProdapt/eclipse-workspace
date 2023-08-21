@@ -1,0 +1,9 @@
+package yahtzee;
+
+public class Main {
+	public static void main(String[] args) {
+		YahtzeeDice game = new YahtzeeDice();
+		
+		
+	}
+}

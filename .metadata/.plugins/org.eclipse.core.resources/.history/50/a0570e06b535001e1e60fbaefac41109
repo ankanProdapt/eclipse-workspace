@@ -1,0 +1,48 @@
+package yahtzee;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+	private static String[] CATEGORIES = {"ONES", "TWOS", "THREES", "FOURS", "FIVES", "SIXES",
+									"THREE_OF_A_KIND", "FOUR_OF_A_KIND", "FULL_HOUSE", 
+									"SMALL_STRAIGHT", "LARGE_STRAIGHT", "YAHTZEE", "CHANCE"};
+	
+	public static List<String> getScoreCard() {
+		List<String> scoreCard = new ArrayList<>();
+		try {
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/yahtzeeDB",
+															"ankan2001prodapt",
+															"we1c@me1");
+			Statement stmt = cnx.createStatement();
+			for(String category: CATEGORIES) {
+				String command = "SELECT * FROM scoreCard WHERE category = " + category;
+				ResultSet rs = stmt.executeQuery(command);
+				
+				String s = "";
+				
+				while(rs.next()) {
+					s += rs.getString("category") + "     " + rs.getInt("score");
+				}
+				
+				scoreCard.add(s);
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return scoreCard;
+	}
+	
+	public static void main(String[] args) {
+		YahtzeeDice game = new YahtzeeDice();
+		
+		System.out.println(getScoreCard());
+	}
+}

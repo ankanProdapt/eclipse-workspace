@@ -1,0 +1,11 @@
+package tennis;
+
+public class Game {
+	
+	public static void updateGame(Player winner, Player loser) {
+		winner.servesWon++;
+		if((winner.servesWon >= 4) && (winner.servesWon - loser.servesWon >= 2)) {
+			Set.updateSet(winner, loser);
+		}
+	}
+}

@@ -1,0 +1,49 @@
+package chess;
+
+ 
+
+import java.util.List;
+
+ 
+
+public class King extends Piece {
+
+ 
+
+    public King(String colour, int row, String column) {
+        super("King", colour, row, column);
+    }
+
+ 
+
+    @Override
+    public boolean canMoveTo(int newRow, String newCol, Piece[][] chessBoard) {
+        int currentRow = this.getRow();
+        String currentCol = this.getColumn();
+        int currentColIndex = getColumnIndex(currentCol);
+        int newColIndex = ChessUtil.getColumnIndex(newCol);
+
+ 
+
+        // Check if the new position is within the board bounds
+        if (newRow < 0 || newRow >= 8 || !ChessUtil.isValidColumn(newCol)) {
+            return false;
+        }
+
+ 
+
+        int rowDistance = Math.abs(newRow - currentRow);
+        int colDistance = Math.abs(newColIndex - currentColIndex);
+
+ 
+
+        // A king can move one square in any direction: horizontally, vertically, or diagonally
+        return rowDistance <= 1 && colDistance <= 1;
+    }
+
+ 
+
+    private int getColumnIndex(String column) {
+        return column.charAt(0) - 'a';
+    }
+}

@@ -1,0 +1,42 @@
+package trump;
+
+import java.util.*;
+
+public class Card {
+	
+	private String playerName;
+	private Map<Category, Integer> categories;
+	
+	
+	public Card(String playerName) {
+		this.playerName = playerName;
+		categories = new HashMap<Category, Integer>();
+	}
+	
+	public void addCategory(Category category, int score) {
+		categories.put(category, score);
+	}
+	
+	public int getScore(Category category) {
+		return categories.get(category);
+	}
+	
+	
+	
+	
+	
+	public int trumps(Card other, Category category) {
+		return category.compare(other.categories.get(category),
+							this.categories.get(category));
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		String result = playerName + ":\n";
+		result += categories.toString();
+		
+		return result;
+	}
+}

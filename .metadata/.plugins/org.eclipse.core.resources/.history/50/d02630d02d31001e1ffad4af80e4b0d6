@@ -1,0 +1,13 @@
+package odometer;
+
+public class Testing {
+	public static void main(String[] args) {
+		Odometer a = new Odometer(8);
+		
+		System.out.println(a);
+		a.incrementReadingBy(5);
+		System.out.println(a);
+		a.decrementReadingBy(5);
+		System.out.println(a);
+	}
+}

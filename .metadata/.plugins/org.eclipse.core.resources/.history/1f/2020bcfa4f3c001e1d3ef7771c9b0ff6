@@ -1,0 +1,9 @@
+package chess;
+
+public class Pawn extends Piece{
+
+	public Pawn(String colour, int row, String column) {
+		super("Pawn", colour, row, column);
+	}
+
+}

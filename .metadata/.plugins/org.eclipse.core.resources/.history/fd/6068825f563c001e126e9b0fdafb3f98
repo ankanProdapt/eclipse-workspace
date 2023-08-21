@@ -1,0 +1,92 @@
+package chess;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ChessBoard {
+	public static List<String> columns = Arrays.asList(new String[] {"a", "b", "c", "d", "e", "f", "g", "h"});
+	private Piece[][] chessBoard = new Piece[8][8];
+	
+	public ChessBoard() {
+		for(int i = 0; i < 8; i++) {
+			Piece p1 = new Pawn("white", 2, columns.get(i));
+			Piece p2 = new Pawn("black", 7, columns.get(i));
+			
+			chessBoard[1][i] = p1;
+			chessBoard[6][i] = p2;
+		}
+	}
+	
+	public String getPieceName(String command) {
+		switch (command.charAt(0)) {
+		case 'K':
+			return "King";
+		case 'Q':
+			return "Queen";
+		case 'R':
+			return "Rook";
+		case 'B':
+			return "Bishop";
+		case 'N':
+			return "Knight";
+		default:
+			return "Pawn";
+		}
+	}
+	
+	public int getRow(String command) {
+		int l = command.length();
+		return Integer.valueOf(command.substring(l - 1));
+	}
+	
+	public String getCol(String command) {
+		int l = command.length();
+		return command.substring(l - 2, l - 1);
+	}
+	
+	public void executeMove(String colour, String command) {
+		String pieceName = getPieceName(command);
+		
+		String[] strs = command.split("-");
+		int sourceRow = getRow(strs[0]);
+		int destinationRow = getRow(strs[1]);
+		
+		String sourceCol = getCol(strs[0]);
+		String destinationCol = getCol(strs[1]);
+		
+		int sourceColInd = columns.indexOf(sourceCol);
+		Piece p = chessBoard[sourceRow - 1][sourceColInd];
+		
+		if(p != null && p.name.equals(pieceName) && colour.equals(p.colour)) {
+			if(p.canMoveTo(destinationRow, destinationCol, chessBoard)) {
+				System.out.println("Here");
+				p.row = destinationRow;
+				p.column = destinationCol;
+			}
+		}
+		else {
+			System.out.println("Invalid Move");
+			return;
+		}
+		
+	}
+	
+	@Override
+	public String toString() {
+		String result = "";
+		for(int i = 0; i < 8; i++) {
+			for(int j = 0; j < 8; j++) {
+				if(chessBoard[i][j] == null) {
+					result += "---- ";
+				}
+				else {
+					result += chessBoard[i][j] + " ";
+				}
+			}
+			result += "\n";
+		}
+		
+		return result;
+	}
+}

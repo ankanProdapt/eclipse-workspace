@@ -1,0 +1,14 @@
+package tuples;
+
+public class Pair<T> extends Tuple<T> {
+	
+	
+
+	public Pair(T[] objArr) {
+		if(objArr.length != 2) {
+			throw new UnsupportedOperationException("Size of Pair must be 2!");
+		}
+		super(objArr);
+	}
+	
+}

@@ -1,0 +1,6 @@
+package tuples;
+
+import java.util.Collections;
+
+public class Tuple<T> implements Collection<T> {
+}

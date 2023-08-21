@@ -1,0 +1,21 @@
+package chess;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class Main {
+	public static void main(String[] args) throws Exception{
+		ChessBoard c = new ChessBoard();
+		System.out.println(c);
+		
+		Path p = Paths.get("pgn1.txt");
+		List<String> lines = Files.readAllLines(p);
+		for(String line: lines) {
+			String[] moves = line.split("\\s");
+			System.out.println(moves[0] + moves[1]);
+			
+		}
+	}
+}

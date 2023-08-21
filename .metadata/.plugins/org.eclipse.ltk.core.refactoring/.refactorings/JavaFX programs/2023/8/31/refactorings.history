@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;mineSweeper.Tester&apos; to &apos;ViewController&apos;&#x0A;- Original project: &apos;JavaFX programs&apos;&#x0A;- Original element: &apos;mineSweeper.Tester&apos;&#x0A;- Renamed element: &apos;mineSweeper.ViewController&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Tester&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;mineSweeper{Tester.java[Tester" matchStrategy="1" name="ViewController" qualified="false" references="true" similarDeclarations="false" stamp="1691049651083" textual="false" version="1.0"/>
+</session>

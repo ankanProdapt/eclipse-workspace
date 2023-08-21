@@ -1,0 +1,66 @@
+package trump;
+import java.util.*;
+
+public class Tester {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Category matches = new Matches();
+		Category highscore = new Highscore();
+		Category runs = new Runs();
+		Category hundreds = new Hundreds();
+		Category rank = new Rank();
+		
+		
+		Card sachin = new Card("Sachin");
+		sachin.addCategory(rank, 1);
+		sachin.addCategory(runs, 22347);
+		sachin.addCategory(highscore, 234);
+		
+		Card kohli = new Card("Kohli");
+		kohli.addCategory(rank, 2);
+		kohli.addCategory(runs, 999999);
+		kohli.addCategory(highscore, 120);
+		
+		System.out.println(sachin.trumps(kohli, rank));
+		System.out.println(sachin.trumps(kohli, runs));
+		
+		System.out.println(sachin);
+		System.out.println(kohli);
+		
+		
+		
+		List<Card> deck = new ArrayList<Card>();
+		
+		System.out.print("Enter number of cards: ");
+		int numberOfCards = sc.nextInt();
+		
+		for(int i = 0; i < numberOfCards; i++) {
+			
+			System.out.print("Enter Player " + (i + 1) + " name: ");
+			Card card = new Card(sc.next());
+			
+			System.out.print("Matches: ");
+			card.addCategory(matches, sc.nextInt());
+			
+			System.out.print("Highscore: ");
+			card.addCategory(highscore, sc.nextInt());
+			
+			System.out.print("runs: ");
+			card.addCategory(runs, sc.nextInt());
+			
+			System.out.print("Hundreds: ");
+			card.addCategory(hundreds, sc.nextInt());
+			
+			System.out.print("Rank: ");
+			card.addCategory(rank, sc.nextInt());
+			
+			deck.add(card);
+		}
+		
+		System.out.println(deck);
+		
+		sc.close();
+	}
+}

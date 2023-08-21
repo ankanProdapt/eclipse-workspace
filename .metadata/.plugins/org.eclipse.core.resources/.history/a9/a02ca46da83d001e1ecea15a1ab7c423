@@ -1,0 +1,13 @@
+package tennis;
+
+public class Tennis {
+	public Player player1, player2;
+
+	public Tennis(String name1, String name2) {
+		player1 = new Player(name1);
+	}
+	
+	public void update(String name) {
+		
+	}
+}

@@ -1,0 +1,9 @@
+package tuples;
+
+public class Main {
+	public static void main(String[] args) {
+		Integer[] a = {1, 2, 3};
+		Tuple<Integer> t = new Tuple<Integer>(a);
+		System.out.println(t);
+	}
+}

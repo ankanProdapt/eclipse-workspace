@@ -1,0 +1,13 @@
+package trump;
+
+public class Tester {
+	public static void main(String[] args) {
+		Category c1 = new Matches();
+		
+		Card card1 = new Card("Sachin");
+		
+		card1.addCategory(c1, 1000);
+		
+		System.out.println(card1);
+	}
+}

@@ -1,0 +1,13 @@
+package tennis;
+
+public class Set {
+	
+	public static void updateSet(Player winner, Player loser) {
+		winner.gamesWon++;
+		if((winner.gamesWon >= 6) && (winner.gamesWon - loser.gamesWon >= 2)) {
+			Match.updateMatch(winner, loser);
+			winner.gamesWon = 0;
+			loser.gamesWon = 0;
+		}
+	}
+}

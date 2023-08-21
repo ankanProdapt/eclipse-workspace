@@ -1,0 +1,5 @@
+package noticeBoardWithDB;
+
+public class DBConnectionTester {
+
+}

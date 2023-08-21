@@ -1,0 +1,8 @@
+package chess;
+
+public class Main {
+	public static void main(String[] args) {
+		ChessBoard c = new ChessBoard();
+		System.out.println(c);
+	}
+}

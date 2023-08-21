@@ -1,0 +1,21 @@
+package trump;
+
+public class Matches implements Category{
+	
+	String category;
+	
+	public Matches(String category) {
+		this.category = category;
+	}
+	
+	@Override
+	public int compare(int score1, int score2) {
+		return Integer.compare(score1, score2);
+	}
+	
+	@Override
+	public String toString() {
+		return category;
+	}
+	
+}
